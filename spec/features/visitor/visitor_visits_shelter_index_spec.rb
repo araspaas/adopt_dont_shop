@@ -9,10 +9,10 @@ describe "visitors" do
 
       visit '/shelters'
 
-      within ".shelter_list" do
-        expect(page).to have("Van's pet shop")
-        expect(page).to have("Bovice's pet shop")
-        expect(page).to have("Jared's pet shop")
+      within ".shelters_list" do
+        expect(page).to have_content("Van's pet shop")
+        expect(page).to have_content("Bovice's pet shop")
+        expect(page).to have_content("Jared's pet shop")
       end
     end
   end
