@@ -1,0 +1,5 @@
+<section class="shelter_details">
+  <% @shelter.attributes.values_at("name", "address", "city", "state", "zip").each do |attribute| %>
+    <%= attribute %><br>
+  <% end %>
+</section>
