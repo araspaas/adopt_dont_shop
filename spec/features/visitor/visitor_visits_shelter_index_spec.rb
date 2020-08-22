@@ -60,7 +60,7 @@ describe "visitors" do
     it "can update a shelter" do
       @shelter5 = Shelter.create(name: "Utapau's Separatists", address: "1234 hello there ave", city: "Ahh", state: "General Kenobi", zip: "123456")
 
-      visit "/shelters"
+      visit "/shelters/#{@shelter5.id}"
       click_link "Update Shelter"
 
       expect(current_path).to eq("/shelters/#{@shelter5.id}/edit")
