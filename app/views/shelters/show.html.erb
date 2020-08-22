@@ -2,4 +2,5 @@
   <% @shelter.attributes.values_at("name", "address", "city", "state", "zip").each do |attribute| %>
     <%= attribute %><br>
   <% end %>
+  <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit" %><br>
 </section>
