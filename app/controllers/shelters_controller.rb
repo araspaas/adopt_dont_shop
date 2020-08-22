@@ -25,4 +25,9 @@ class SheltersController < ApplicationController
     shelter.update(name: params["name"], address: params["address"], city: params["city"], state: params["state"], zip: params["zip"])
     redirect_to "/shelters/#{shelter.id}"
   end
+
+  def destroy
+    Shelter.destroy(params[:id])
+    redirect_to "/shelters"
+  end
 end
