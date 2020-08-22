@@ -43,6 +43,16 @@ describe "visitors" do
       click_link "New Shelter"
 
       expect(current_path).to eq("/shelters/new")
+
+      fill_in "Name", with: "Utapau's Separatists"
+      fill_in "Address", with: "1234 hello there ave"
+      fill_in "City", with: "Ahh"
+      fill_in "State", with: "General Kenobi"
+      fill_in "Zip", with: "123456"
+      click_on "Create Shelter"
+
+      expect(current_path).to eq("/shelters")
+      expect(page).to have_content("Utapau's Separatists")
     end
   end
 end
