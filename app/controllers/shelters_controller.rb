@@ -15,4 +15,8 @@ class SheltersController < ApplicationController
     Shelter.create(name: params["name"], address: params["address"], city: params["city"], state: params["state"], zip: params["zip"])
     redirect_to '/shelters'
   end
+
+  def edit
+
+  end
 end
