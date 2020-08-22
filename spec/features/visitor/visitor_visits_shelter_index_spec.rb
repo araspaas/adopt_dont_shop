@@ -55,4 +55,29 @@ describe "visitors" do
       expect(page).to have_content("Utapau's Separatists")
     end
   end
+
+  describe "can visit update shelter" do
+    it "can update a shelter" do
+      @shelter5 = Shelter.create(name: "Utapau's Separatists", address: "1234 hello there ave", city: "Ahh", state: "General Kenobi", zip: "123456")
+
+      visit "/shelters"
+      click_link "Update Shelter"
+
+      expect(current_path).to eq("/shelters/#{@shelter5.id}/edit")
+
+      fill_in "Name", with: "Will Smith's Dog Shop"
+      fill_in "Address", with: "251 North Bristol Ave"
+      fill_in "City", with: "Los Angeles"
+      fill_in "State", with: "California"
+      fill_in "Zip", with: "90049"
+      click_on "Update Shelter"
+
+      expect(current_path).to eq("/shelters/#{@shelter5.id}")
+      expect(page).to have_content("Will Smith's Dog Shop")
+      expect(page).to have_content("251 North Bristol Ave")
+      expect(page).to have_content("Los Angeles")
+      expect(page).to have_content("California")
+      expect(page).to have_content("90049")
+    end
+  end
 end
