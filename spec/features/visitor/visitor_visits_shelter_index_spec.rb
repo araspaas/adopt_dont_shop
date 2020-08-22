@@ -35,4 +35,14 @@ describe "visitors" do
       end
     end
   end
+
+  describe "visit new shelter" do
+    it "can create a new shelter" do
+
+      visit "/shelters"
+      click_link "New Shelter"
+
+      expect(current_path).to eq("/shelters/new")
+    end
+  end
 end
