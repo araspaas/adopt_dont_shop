@@ -80,4 +80,16 @@ describe "visitors" do
       expect(page).to have_content("90049")
     end
   end
+
+  describe "can" do
+    it "delete a shelter" do
+      @shelter7 = Shelter.create(name: "Hen House", address: "1234 ave", city: "blah", state: "blah blah", zip: "123456")
+
+      visit "/shelters/#{@shelter7.id}"
+      click_link "Delete"
+
+      expect(current_path).to eq("/shelters")
+      expect(page).to_not have_content(@shelter7.name)
+    end
+  end
 end
