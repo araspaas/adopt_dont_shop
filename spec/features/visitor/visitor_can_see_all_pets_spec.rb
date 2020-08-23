@@ -45,10 +45,15 @@ describe "Visitors" do
   describe "can see a single pet" do
     it "displays information for one pet" do
 
-      visit "pets/#{pet.id}"
+      visit "pets/#{@pet1.id}"
 
-      expect(page).to have_content(@pet2.name)
-      expect(page).to have_content(@pet2.shelter_id)
+      expect(page).to have_content(@pet1.name)
+      expect(page).to have_content(@pet1.image)
+      expect(page).to have_content(@pet1.description)
+      expect(page).to have_content(@pet1.age)
+      expect(page).to have_content(@pet1.sex)
+      expect(page).to have_content(@pet1.status)
+
     end
   end
 end
