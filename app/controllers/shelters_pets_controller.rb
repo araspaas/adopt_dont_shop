@@ -7,6 +7,7 @@ class SheltersPetsController < ApplicationController
   end
 
   def new
+    @shelter_id = params[:id]
     binding.pry
   end
 end
