@@ -7,5 +7,6 @@ class SheltersPetsController < ApplicationController
   end
 
   def new
+    binding.pry
   end
 end

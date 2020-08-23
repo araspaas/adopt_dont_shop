@@ -6,10 +6,10 @@ describe "Visitors" do
     @shelter2 = Shelter.create(name: "Bovice's pet shop", address: "37 tennessee dr", city: "Rockford", state: "Illinois", zip: "61108")
     @shelter3 = Shelter.create(name: "Jared's pet shop", address: "24 tennessee dr", city: "Rockford", state: "Illinois", zip: "61108")
     @shelter4 = Shelter.create(name: "Old Greg's pet shop", address: "24 rona st", city: "Rockford", state: "Illinois", zip: "61102")
-    @pet1 = Pet.create(image: "Bellas-pic", name: "Bella", age: "5", sex: "female", shelter_id: "#{@shelter1.id}")
-    @pet2 = Pet.create(image: "maisys-pic", name: "Maisy", age: "6", sex: "female", shelter_id: "#{@shelter2.id}")
-    @pet3 = Pet.create(image: "Mr.cats-pic", name: "Mr. Cat", age: "9", sex: "male", shelter_id: "#{@shelter3.id}")
-    @pet4 = Pet.create(image: "franks-pic", name: "Frank", age: "3", sex: "male", shelter_id: "#{@shelter4.id}")
+    @pet1 = Pet.create(image: "Bellas-pic", name: "Bella", age: "6", sex: "female", shelter_id: "#{@shelter1.id}", description: "Fun loving dog", status: 0)
+    @pet2 = Pet.create(image: "maisys-pic", name: "Maisy", age: "6", sex: "female", shelter_id: "#{@shelter2.id}", description: "Stomache on Legs", status: 0)
+    @pet3 = Pet.create(image: "Mr.cats-pic", name: "Mr. Cat", age: "9", sex: "male", shelter_id: "#{@shelter3.id}", description: "Has Russian accent", status: 0)
+    @pet4 = Pet.create(image: "franks-pic", name: "Frank", age: "3", sex: "male", shelter_id: "#{@shelter4.id}", description: "It's a snake. does snake things", status: 0)
   end
   describe "when they visit /pets" do
     it "Displays all pets" do
@@ -27,7 +27,6 @@ describe "Visitors" do
 
   describe "when they visit shelter_id" do
     it "displays info for one shelter" do
-      pet2 = Pet.create(image: "frankies-pic", name: "Frankie", age: "7", sex: "male", shelter_id: "#{@shelter1.id}")
 
       visit "/shelters/#{@shelter1.id}/pets"
 
@@ -35,10 +34,6 @@ describe "Visitors" do
       expect(page).to have_content(@pet1.sex)
       expect(page).to have_content(@pet1.image)
       expect(page).to have_content(@pet1.age)
-      expect(page).to have_content(pet2.name)
-      expect(page).to have_content(pet2.age)
-      expect(page).to have_content(pet2.image)
-      expect(page).to have_content(pet2.sex)
     end
   end
 
