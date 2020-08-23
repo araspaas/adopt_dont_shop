@@ -1,0 +1,10 @@
+<h1>All Pets</h1>
+<section class="pets_list">
+  <% @pets.each do |pet| %>
+    <li><%= pet.name %><br>
+    <%= pet.image %><br>
+    <%= pet.age %><br>
+    <%= pet.sex %><br>
+    <%= pet.shelter_id %><br><br>
+  <% end %>
+</section>
