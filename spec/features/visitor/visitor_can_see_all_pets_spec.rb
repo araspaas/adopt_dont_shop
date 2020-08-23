@@ -55,10 +55,10 @@ describe "Visitors" do
   describe "Can click link Create Pet" do
     it "lets them create a pet" do
 
-      visit "/shelters/#{@shelter1.id}/pets/new"
+      visit "/shelters/#{@shelter1.id}/pets"
 
       click_on "Create Pet"
-      expect(current_path).to eq("/pets/new")
+      expect(current_path).to eq("/shelters/#{@shelter1.id}/pets/new")
 
       fill_in :image, with: "pet-pic"
       fill_in :name, with: "Snowball"
@@ -68,8 +68,11 @@ describe "Visitors" do
 
       click_on "Create Pet"
 
-      expect(current_path).to eq("/pets")
+      expect(current_path).to eq("/shelters/#{@shelter1.id}/pets")
       expect(page).to have_content("Snowball")
+      expect(page).to have_content("pet-pic")
+      expect(page).to have_content("2")
+      expect(page).to have_content("female")
     end
   end
 end
