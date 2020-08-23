@@ -1,7 +1,7 @@
 <h1>Shelters</h1>
 <section class="shelters_list">
   <% @shelters.each do |shelter| %>
-    <li><%= shelter.name %></li>
+    <li><%= link_to "#{shelter.name}", "/shelters/#{shelter.id}" %></li>
   <% end %>
   <%= link_to "New Shelter", "/shelters/new" %>
 </section>
