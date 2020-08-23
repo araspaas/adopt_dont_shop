@@ -56,4 +56,25 @@ describe "Visitors" do
 
     end
   end
+
+  describe "Can click link Create Pet" do
+    it "lets them create a pet" do
+
+      visit "/shelters/#{@shelter1.id}/pets/new"
+
+      click_on "Create Pet"
+      expect(current_path).to eq("/pets/new")
+
+      fill_in :image, with: "pet-pic"
+      fill_in :name, with: "Snowball"
+      fill_in :description, with: "Watch your toes"
+      fill_in :age, with: "2"
+      fill_in :sex, with: "female"
+
+      click_on "Create Pet"
+
+      expect(current_path).to eq("/pets")
+      expect(page).to have_content("Snowball")
+    end
+  end
 end
