@@ -24,4 +24,31 @@ describe "Visitors" do
       end
     end
   end
+
+  describe "when they visit shelter_id" do
+    it "displays info for one shelter" do
+      pet2 = Pet.create(image: "frankies-pic", name: "Frankie", age: "7", sex: "male", shelter_id: "#{@shelter1.id}")
+
+      visit "/shelters/#{@shelter1.id}/pets"
+
+      expect(page).to have_content(@pet1.name)
+      expect(page).to have_content(@pet1.sex)
+      expect(page).to have_content(@pet1.image)
+      expect(page).to have_content(@pet1.age)
+      expect(page).to have_content(pet2.name)
+      expect(page).to have_content(pet2.age)
+      expect(page).to have_content(pet2.image)
+      expect(page).to have_content(pet2.sex)
+    end
+  end
+
+  describe "can see a single pet" do
+    it "displays information for one pet" do
+
+      visit "pets/#{pet.id}"
+
+      expect(page).to have_content(@pet2.name)
+      expect(page).to have_content(@pet2.shelter_id)
+    end
+  end
 end
