@@ -12,6 +12,6 @@ class PetsController < ApplicationController
     @pet = Pet.create(image: params[:image], name: params[:name], description: params[:description], age: params[:age], sex: params[:sex], shelter_id: params[:shelter_id], status: 0)
     @pet.save
     binding.pry
-    redirect_to "/shelters/#{@shelter.id}/pets"
+    redirect_to "/shelters/#{@shelter_id}/pets"
   end
 end
