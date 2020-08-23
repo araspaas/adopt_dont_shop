@@ -8,4 +8,6 @@
 
 <h2>Description:</h2><p><%= @pet.description %></p>
 
-<h2>Status:</h2><p><%= @pet.status %></p>
+<h2>Status:</h2><p><%= @pet.status %></p><br>
+
+<%= link_to "Update Pet", "/pet/#{@pet.id}/edit" %>

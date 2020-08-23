@@ -75,4 +75,27 @@ describe "Visitors" do
       expect(page).to have_content("female")
     end
   end
+
+  # describe "can" do
+  #   it "update a pet" do
+  #
+  #     visit "/pets/#{@pet1.id}"
+  #     click_link "Update Pet"
+  #
+  #     expect(current_path).to eq("/pets/#{@pet1.id}/edit")
+  #
+  #     fill_in :image, with: "blah"
+  #     fill_in :name, with: "Stan"
+  #     fill_in :description, with: "Eminem fan"
+  #     fill_in :age, with: "2"
+  #     fill_in :sex, with: "male"
+  #     click_on "Update Pet"
+  #     expect(current_path).to eq("/pets/#{@pet1.id}")
+  #     expect(page).to have_content("Stan")
+  #     expect(page).to have_content("blah")
+  #     expect(page).to have_content("Eminem fan")
+  #     expect(page).to have_content("2")
+  #     expect(page).to have_content("male")
+  #   end
+  # end
 end
